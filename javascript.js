@@ -1,4 +1,5 @@
-formArray = ["nineAm", "tenAm", "elevenAm", "noon", "onePm", "twoPm", "threePm", "fourPm", "fivePm"];
+let formArray = ["nineAm", "tenAm", "elevenAm", "noon", "onePm", "twoPm", "threePm", "fourPm", "fivePm"];
+let timeVar;
 
 formArray.forEach(startUp);
 
@@ -15,3 +16,11 @@ function logText(formReturn){
     var storageClass = document.getElementById(formId).name;
     localStorage.setItem(storageClass, inputText);
 }
+
+function timeFinder(){
+    timeVar = new Date().toLocaleTimeString([],{hour: '2-digit', minute: '2-digit'});
+    return timeVar;
+}
+
+timeFinder();
+console.log(timeVar);
