@@ -1,0 +1,13 @@
+.planner-text{
+    margin: 0px;
+    padding: 0px;
+    width: 80%;
+    height: 80px;
+    background-color: #d3d3d3;
+}
+
+.time-marker{
+    margin: 0;
+    width: 9%;
+    height: 80px;
+}
