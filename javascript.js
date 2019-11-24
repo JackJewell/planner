@@ -2,18 +2,24 @@ let formArray = ["nineAm", "tenAm", "elevenAm", "noon", "onePm", "twoPm", "three
 let timeVar;
 let dateVar;
 
+//finds the current date
 function dateFinder(){
     dateVar = new Date().toLocaleDateString();
     return dateVar;
 }
 
+//call dateFinder
 dateFinder();
+//log the current date to the console
 console.log(dateVar);
 
+//set the display date
 $("#dateDisplay").text(dateVar);
 
+//call the startup function for each element of the Form Array
 formArray.forEach(startUp);
 
+//checks local storage and fills in the saved sections of the forms
 function startUp(storageId){
     var formSet = document.getElementById(storageId);
     var textSet = localStorage.getItem(storageId);
@@ -29,6 +35,7 @@ function startUp(storageId){
     }
 }
 
+//saves the text that a user inputs to local storage
 function logText(formReturn){
     event.preventDefault();
     var formId = formReturn.children[0].id;
@@ -38,14 +45,13 @@ function logText(formReturn){
     localStorage.setItem(setDate, dateVar);
 }
 
+//finds the current time
 function timeFinder(){
     timeVar = new Date().toLocaleTimeString([],{hour: '2-digit'});
     return timeVar;
 }
 
-
-
-
+//using the time previously found, set the forms to their respective colors
 function timeStyle(){
     switch(timeVar){
         case "09 AM":
@@ -84,9 +90,12 @@ function timeStyle(){
             $("#fivePm").css({"background-color": "#ffcccb"});
             changeColors(9);
             break;
+        default:
+            break;
     }
 }
 
+//the function that actually changes the colors
 function changeColors(switcher){
     var counter = 9-switcher;
     for(var i = 0; i < counter;){
@@ -97,5 +106,6 @@ function changeColors(switcher){
     }
 }
 
+//calling the functions to make them actually do the things
 timeFinder();
 timeStyle();
