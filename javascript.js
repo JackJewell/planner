@@ -38,11 +38,11 @@ function startUp(storageId){
 //saves the text that a user inputs to local storage
 function logText(formReturn){
     event.preventDefault();
-    var formId = formReturn.children[0].id;
-    var inputText= document.getElementById(formId).value;
+    var formId = formReturn.children[1].id;
+    var inputText = document.getElementById(formId).value;
     var storageClass = document.getElementById(formId).name;
     localStorage.setItem(storageClass, inputText);
-    localStorage.setItem(setDate, dateVar);
+    localStorage.setItem("setDate", dateVar);
 }
 
 //finds the current time
